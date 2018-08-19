@@ -7,16 +7,13 @@
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
 
-        <div>
-            <p>published: 19.08.2018, 13:50</p>
-            <h2><a href="">Первый пост</a></h2>
-            <p>На дворе трава, на траве дрова</p>
-        </div>
-
-        <div>
-            <p>published: 19.08.2018, 14:00</p>
-            <h2><a href="">Второй пост</a></h2>
-            <p>Чувствую, что русский язык надо подключать как-то отдельно, так что жду лажу!</p>
-        </div>
+        {% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+        
     </body>
 </html>
